@@ -14,17 +14,29 @@ import{
     Image,
 }from 'react-native';
 
-export default class Home extends Component{
-    constructor(props){
+export default class Home extends Component {
+    constructor(props) {
         super(props);
+        this.nextPage = this.nextPage.bind(this);
     }
+
+    nextPage() {
+        let page = {};
+        page.name = '李四';
+        page.age = '24';
+        this.props.actions.getInfo(page);
+        this.props.actions.routerGoToNextPage();
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={{height:80,backgroundColor:'#f5f6f6', alignItems: 'center'}}
-                                  onPress={()=>this.props.actions.routerGoToNextPage()}>
-                    <Text style={{fontSize: 20, color: 'red',marginTop:20}}> 欢迎来react native世界!</Text>
-                    <Text style={{fontSize: 20, color: 'red',marginTop:20}}> 请点击我进入下一页!</Text>
+                <Text>姓名: {this.props.info.name}</Text>
+                <Text>年龄: {this.props.info.age}</Text>
+                <TouchableOpacity style={{height: 80, backgroundColor: '#f5f6f6', alignItems: 'center'}}
+                                  onPress={()=>this.nextPage()}>
+                    <Text style={{fontSize: 20, color: 'red', marginTop: 20}}> 欢迎来react native世界!</Text>
+                    <Text style={{fontSize: 20, color: 'red', marginTop: 20}}> 请点击我进入下一页!</Text>
                 </TouchableOpacity>
             </View>
         )

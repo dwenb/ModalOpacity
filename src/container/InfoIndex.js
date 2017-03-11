@@ -32,20 +32,21 @@ import {connect} from 'react-redux';
  * The actions we need
  */
 import * as routerActions from '../reducers/router/routerActions';
-
-
+import * as nextPageActions from '../reducers/nextPage/NextPageActions';
 
 /**
  * ## Redux boilerplate
  */
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        info: state.nextPageInfo.info,
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions:bindActionCreators({...routerActions,},dispatch)
+        actions: bindActionCreators({...routerActions, ...nextPageActions}, dispatch)
     };
 }
 
@@ -68,7 +69,9 @@ class InfoIndex extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <NextPage/>
+                <NextPage info={this.props.info}
+                          actions={this.props.actions}
+                />
             </View>
         );
     }

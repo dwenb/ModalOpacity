@@ -11,6 +11,7 @@
  * our 4 reducers
  */
 import home from './home/homeReducer';
+import nextPageInfo from './nextPage/NextPageReducer'
 import {combineReducers} from 'redux';
 
 /**
@@ -20,7 +21,8 @@ import {combineReducers} from 'redux';
  * EVERY TIME there is a basic action
  */
 const rootReducer = combineReducers({
-    home
+    home,
+    nextPageInfo,
 });
 
 export default rootReducer;

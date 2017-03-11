@@ -30,10 +30,14 @@ export default class NextPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={{height: 90, backgroundColor: '#f5f6f6',alignItems: 'center'}}
+                <View style={{marginBottom: 30, backgroundColor: 'yellow'}}>
+                    <Text>姓名: {this.props.info.name}</Text>
+                    <Text>年龄: {this.props.info.age}</Text>
+                </View>
+                <TouchableOpacity style={{height: 90, backgroundColor: '#f5f6f6', alignItems: 'center'}}
                                   onPress={()=>this.modalShow(true)}>
                     <Text style={{fontSize: 20, color: 'red', marginTop: 20}}> 欢迎来Modal演示页!</Text>
-                     <Text style={{fontSize: 20, color: 'red', marginTop: 20}}> 请点击我!</Text>
+                    <Text style={{fontSize: 20, color: 'red', marginTop: 20}}> 请点击我!</Text>
                 </TouchableOpacity>
                 <Modal
                     style={styles.testModalStyle}

@@ -27,7 +27,7 @@ import reducer from '../reducers';
  *
  */
 import homeInitialState from '../reducers/home/homeInitialState';
-
+import nextPageInitialState from '../reducers/nextPage/NextPageInitialState';
 
 /**
  * ## creatStoreWithMiddleware
@@ -47,6 +47,7 @@ const createStoreWithMiddleware = applyMiddleware(
 function getInitialState() {
     return {
         home: (new homeInitialState),
+        nextPageInfo:(new nextPageInitialState),
     };
 }
 
